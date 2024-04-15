@@ -46,15 +46,19 @@ class CusttomButton extends StatelessWidget {
 }
 
 class Logo extends StatelessWidget {
-  const Logo({super.key});
+  final double width;
+  final double height;
+  final double fontSize;
+
+  const Logo({super.key, required this.width, required this.height, required this.fontSize});
 
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       Center(
         child: Container(
-          width: 360,
-          height: 224,
+          width: width,//360,
+          height: height,//224,
           padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
           decoration: BoxDecoration(
             color: Color(0xFF0E0019),
@@ -64,14 +68,14 @@ class Logo extends StatelessWidget {
               width: 3.0,
             ),
           ),
-          child: const Center(
+          child: Center(
             child: Text(
               'A galáxia que habita em mim',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: 'PathKid',
                 color: Color(0xFFBFCAFF),
-                fontSize: 38.0,
+                fontSize: fontSize,//38.0,
                 fontWeight: FontWeight.bold,
               ),
             ),

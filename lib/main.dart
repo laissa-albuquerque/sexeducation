@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sexeducation/view/age_options_menu.dart';
+import 'package:sexeducation/view/information.dart';
 import 'package:sexeducation/view/login.dart';
 import 'package:sexeducation/view/register.dart';
 import 'components/global.dart';
@@ -23,7 +25,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {LoginScreen.id: (context) => const LoginScreen(),
-        RegisterScreen.id: (context) => const RegisterScreen()
+        RegisterScreen.id: (context) => const RegisterScreen(),
+        InformationScreen.id: (context) => const InformationScreen(),
+        AgeOptionsMenuScreen.id : (context) => const AgeOptionsMenuScreen(),
       },
       home: Scaffold(
         body: Welcome(),
@@ -47,7 +51,7 @@ class Welcome extends StatelessWidget {
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Logo(),
+            const Logo(width: 360, height: 224, fontSize: 38.0),
             const SizedBox(
               height: 42,
             ),

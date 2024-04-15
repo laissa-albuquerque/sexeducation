@@ -6,6 +6,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sexeducation/database/user_dao.dart';
 import 'package:sexeducation/models/user.dart';
+import 'package:sexeducation/view/information.dart';
 
 import '../components/global.dart';
 
@@ -129,7 +130,7 @@ class _LoginScreen extends State<LoginScreen> {
                                       child: CusttomButton(
                                         buttonText: 'ENTRAR',
                                         onPressed: () {
-                                          Navigator.pop(context);
+                                          Navigator.pushNamed(context, InformationScreen.id);
                                         },
                                           colors: const [
                                             Color(0xFF2d1640),
