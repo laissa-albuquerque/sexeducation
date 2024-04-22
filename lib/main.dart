@@ -8,6 +8,7 @@ import 'package:sexeducation/views/information.dart';
 import 'package:sexeducation/views/login.dart';
 import 'package:sexeducation/views/register.dart';
 import 'package:sexeducation/views/define_nickname.dart';
+import 'package:sexeducation/views/viewsForYears/kids_group_one.dart';
 import 'components/global.dart';
 import 'firebase_options.dart';
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         DefineNicknameScreen.id: (context) => const DefineNicknameScreen(),
         DefineAvatarScreen.id: (context) => const DefineAvatarScreen(),
         AgeOptionsMenuScreen.id: (context) => const AgeOptionsMenuScreen(),
+        KidsGroupOneScreen.id: (context) => const KidsGroupOneScreen(),
       },
       home: Scaffold(
         body: Welcome(),

@@ -54,7 +54,8 @@ class _DefineAvatarScreen extends State<DefineAvatarScreen> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Aguarde enquanto as informações estão sendo carregadas...'),
+          content:
+              Text('Aguarde enquanto as informações estão sendo carregadas...'),
         ),
       );
     }
@@ -241,7 +242,8 @@ class _DefineAvatarScreen extends State<DefineAvatarScreen> {
             color: Colors.white60, // Cor de fundo
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: isSelected ? Color(0xffEEB820) : Colors.transparent, // Cor da borda quando selecionado
+              color: isSelected ? Color(0xffEEB820) : Colors.transparent,
+              // Cor da borda quando selecionado
               width: 4, // Largura da borda
             ),
           ),
