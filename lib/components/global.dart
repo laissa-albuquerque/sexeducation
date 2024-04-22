@@ -50,15 +50,21 @@ class Logo extends StatelessWidget {
   final double height;
   final double fontSize;
 
-  const Logo({super.key, required this.width, required this.height, required this.fontSize});
+  const Logo(
+      {super.key,
+      required this.width,
+      required this.height,
+      required this.fontSize});
 
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       Center(
         child: Container(
-          width: width,//360,
-          height: height,//224,
+          width: width,
+          //360,
+          height: height,
+          //224,
           padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
           decoration: BoxDecoration(
             color: Color(0xFF0E0019),
@@ -75,7 +81,7 @@ class Logo extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'PathKid',
                 color: Color(0xFFBFCAFF),
-                fontSize: fontSize,//38.0,
+                fontSize: fontSize, //38.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -95,11 +101,11 @@ class MyTextField extends StatelessWidget {
 
   const MyTextField(
       {super.key,
-        required this.controller,
-        required this.hintText,
-        required this.obscureText,
-        required this.prefixIcon,
-        this.onChanged});
+      required this.controller,
+      required this.hintText,
+      required this.obscureText,
+      required this.prefixIcon,
+      this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -126,6 +132,36 @@ class MyTextField extends StatelessWidget {
         prefixIcon: prefixIcon,
         prefixIconColor: Color(0xff4f4f4f),
         filled: true,
+      ),
+    );
+  }
+}
+
+class CustomAvatar extends StatelessWidget {
+  final double width;
+  final double height;
+  final String urlImage;
+
+  const CustomAvatar(
+      {super.key,
+      required this.width,
+      required this.height,
+      required this.urlImage});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+              borderRadius:
+              BorderRadius.circular(10),
+              image: DecorationImage(
+                image: AssetImage(urlImage),
+                fit: BoxFit.cover,
+              )
+          )
       ),
     );
   }

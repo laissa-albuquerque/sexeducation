@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/widgets.dart';
-import 'package:sexeducation/view/age_options_menu.dart';
-import 'package:sexeducation/view/information.dart';
-import 'package:sexeducation/view/login.dart';
-import 'package:sexeducation/view/register.dart';
+import 'package:sexeducation/views/age_options_menu.dart';
+import 'package:sexeducation/views/define_avatar.dart';
+import 'package:sexeducation/views/information.dart';
+import 'package:sexeducation/views/login.dart';
+import 'package:sexeducation/views/register.dart';
+import 'package:sexeducation/views/define_nickname.dart';
 import 'components/global.dart';
 import 'firebase_options.dart';
 
@@ -27,7 +29,9 @@ class MyApp extends StatelessWidget {
       routes: {LoginScreen.id: (context) => const LoginScreen(),
         RegisterScreen.id: (context) => const RegisterScreen(),
         InformationScreen.id: (context) => const InformationScreen(),
-        AgeOptionsMenuScreen.id : (context) => const AgeOptionsMenuScreen(),
+        DefineNicknameScreen.id: (context) => const DefineNicknameScreen(),
+        DefineAvatarScreen.id: (context) => const DefineAvatarScreen(),
+        AgeOptionsMenuScreen.id: (context) => const AgeOptionsMenuScreen(),
       },
       home: Scaffold(
         body: Welcome(),

@@ -67,8 +67,24 @@ flutter:
     - assets/images/background.png
     - assets/images/background-login.png
     - assets/images/background-register.png
-    - assets/images/menina.png
-    - assets/images/menino.png
+    - assets/images/stars.png
+    - assets/images/default_user.png
+    - assets/images/menino1.png
+    - assets/images/menina2.png
+    - assets/images/login.png
+    - assets/avatars/cute-avatar1.png
+    - assets/avatars/cute-avatar2.png
+    - assets/avatars/cute-avatar3.png
+    - assets/avatars/cute-avatar4.png
+    - assets/avatars/avatar-kid-boy1.png
+    - assets/avatars/avatar-kid-boy2.png
+    - assets/avatars/avatar-kid-girl1.png
+    - assets/avatars/avatar-kid-girl2.png
+    - assets/avatars/girl-avatar1.png
+    - assets/avatars/girl-avatar2.png
+    - assets/avatars/man-avatar1.png
+    - assets/avatars/man-avatar2.png
+
   fonts:
     - family: KleeOne
       fonts:
