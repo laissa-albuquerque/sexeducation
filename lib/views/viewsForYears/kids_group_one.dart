@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -78,8 +80,8 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
             child: Column(
               children: [
                 Container(
-                  width: 360,
-                  height: 360,
+                  width: 380,
+                  height: 400,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(20.0)),
                     border: Border.all(color: Colors.transparent, width: 3.0),
@@ -109,11 +111,10 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
                   child: Column(
                     children: [
                       Container(
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 54, horizontal: 0),
-                        width: 360,
+                        margin: const EdgeInsets.fromLTRB(0, 62, 0, 30),
+                        width: 380,
                         height: 70,
-                        color: const Color(0xffBFCAFF),
+                        color: Color(0xffBFCAFF),
                         child: Center(
                           child: Text(
                             'Bem-vindo(a), ${_getNickname(userNickname ?? '')}',
@@ -122,17 +123,31 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
                               fontSize: 32,
                               fontFamily: 'KleeOne',
                               color: Color(0xff0E0019),
+                              decoration: TextDecoration.none,
                             ),
                           ),
                         ),
                       ),
+                      const Material(
+                        color: Colors.transparent,
+                        child: Text(
+                          'Você pode navegar por:',
+                          style: TextStyle(
+                              fontSize: 22,
+                              fontFamily: 'KleeOne',
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          GestureDetector(
+                          TextButton(
+                            onPressed: null,
                             child: Container(
-                              height: 88,
-                              width: 88,
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(20.0)),
@@ -161,16 +176,14 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
                                 ],
                               ),
                               child: const CustomAvatar(
-                                  width: 110,
-                                  height: 110,
+                                  width: 80,
+                                  height: 80,
                                   urlImage: 'assets/images/play.png'),
                             ),
                           ),
-                          SizedBox(width: 20),
-                          GestureDetector(
+                          TextButton(
+                            onPressed: null,
                             child: Container(
-                              height: 88,
-                              width: 88,
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(20.0)),
@@ -199,16 +212,14 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
                                 ],
                               ),
                               child: const CustomAvatar(
-                                  width: 110,
-                                  height: 110,
+                                  width: 80,
+                                  height: 80,
                                   urlImage: 'assets/images/game.png'),
                             ),
                           ),
-                          SizedBox(width: 20),
-                          GestureDetector(
+                          TextButton(
+                            onPressed: null,
                             child: Container(
-                              height: 88,
-                              width: 88,
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(20.0)),
@@ -229,7 +240,8 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
                                     ]),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Color(0xff12091a).withOpacity(0.5),
+                                    color: const Color(0xff12091a)
+                                        .withOpacity(0.9),
                                     spreadRadius: 3,
                                     blurRadius: 10,
                                     offset: const Offset(0, 3),
@@ -237,13 +249,43 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
                                 ],
                               ),
                               child: const CustomAvatar(
-                                  width: 110,
-                                  height: 110,
+                                  width: 80,
+                                  height: 80,
                                   urlImage: 'assets/images/achievements.png'),
                             ),
                           ),
                         ],
                       ),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(width: 52),
+                          Text('vídeos',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'KleeOne',
+                                  color: Colors.white70,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none)),
+                          SizedBox(width: 63),
+                          Text('jogos',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontFamily: 'KleeOne',
+                                color: Colors.white70,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.none,
+                              )),
+                          SizedBox(width: 42),
+                          Text('conquistas',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'KleeOne',
+                                  color: Colors.white70,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none)),
+                        ],
+                      )
                     ],
                   ),
                 ),
@@ -252,8 +294,8 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
           ),
         ),
         Positioned(
-          top: 63,
-          left: 70,
+          top: 50,
+          left: 75,
           child: Image.asset(
             _getUserImageProvider(
                 userImageUrl ?? 'assets/images/default_user.png'),
