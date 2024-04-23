@@ -43,7 +43,7 @@ class _DefineAvatarScreen extends State<DefineAvatarScreen> {
   }
 
   void _handleAvatarSelection(String selectedImagePath) {
-    userImageUrl = 'assets/$selectedImagePath';
+    userImageUrl = '$selectedImagePath';
   }
 
   _enviar() {
@@ -229,7 +229,7 @@ class _DefineAvatarScreen extends State<DefineAvatarScreen> {
   }
 
   Widget _buildAvatarOption(String imagePath) {
-    bool isSelected = userImageUrl == 'assets/$imagePath';
+    bool isSelected = userImageUrl == '$imagePath';
 
     return GestureDetector(
         onTap: () {
