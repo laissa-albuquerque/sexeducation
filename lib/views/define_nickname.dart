@@ -91,7 +91,7 @@ class _DefineNicknameScreen extends State<DefineNicknameScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   const Text(
-                                    'Olá,',
+                                    'Olá',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontSize: 58,

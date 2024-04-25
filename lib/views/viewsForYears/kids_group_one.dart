@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sexeducation/views/viewsForYears/kids_videos.dart';
 import '../../components/global.dart';
 import '../../services/authentication.dart';
 
@@ -131,7 +132,7 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
                       const Material(
                         color: Colors.transparent,
                         child: Text(
-                          'Você pode navegar por:',
+                          'você pode navegar por:',
                           style: TextStyle(
                               fontSize: 22,
                               fontFamily: 'KleeOne',
@@ -146,7 +147,9 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextButton(
-                            onPressed: null,
+                            onPressed: () {
+                              Navigator.pushNamed(context, KidsVideoScreen.id);
+                            },
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.all(
