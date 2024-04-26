@@ -57,14 +57,14 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
         alignment: Alignment.center,
         child: const Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 'Carregando vídeos...',
                 style: TextStyle(
                   fontFamily: 'KleeOne',
                   color: Colors.white,
-                  fontSize: 28,
+                  fontSize: 22,
                   decoration: TextDecoration.none,
                 ),
               ),

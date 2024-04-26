@@ -167,6 +167,9 @@ class _KidsVideoScreen extends State<KidsVideoScreen> {
                   url: 'assets/videos/desbravando-nosso-corpo-H1.mp4',
                   nameVideo: 'Desbravando nosso corpo'),
               const SizedBox(height: 28),
+              const VideoPlayerView(
+                  url: 'assets/videos/os-segredos-do-meu-corpinho-H2.mp4',
+                  nameVideo: 'Os segredos do meu corpinho'),
             ],
           ),
         ),
