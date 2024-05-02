@@ -1,10 +1,5 @@
-import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sexeducation/views/information.dart';
 
 import '../components/global.dart';
@@ -42,7 +37,7 @@ class _LoginScreen extends State<LoginScreen> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: true,
-        backgroundColor: Color(0xff0E0019),
+        backgroundColor: const Color(0xff0E0019),
         body: ListView(
           padding: const EdgeInsets.fromLTRB(0, 400, 0, 0),
           shrinkWrap: true,

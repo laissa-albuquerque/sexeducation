@@ -1,10 +1,5 @@
-import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sexeducation/database/user_dao.dart';
 import 'package:sexeducation/models/user.dart';
 
@@ -142,7 +137,7 @@ class _RegisterScreen extends State<RegisterScreen> {
                                         color: Color(0xff8d8d8d),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     MyTextField(
@@ -151,10 +146,10 @@ class _RegisterScreen extends State<RegisterScreen> {
                                       obscureText: false,
                                       prefixIcon: Icon(Icons.mail_outline),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 26,
                                     ),
-                                    Text(
+                                    const Text(
                                       "Senha",
                                       style: TextStyle(
                                         fontFamily: 'Fredoka',
@@ -162,7 +157,7 @@ class _RegisterScreen extends State<RegisterScreen> {
                                         color: Color(0xff8d8d8d),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     MyTextField(
@@ -171,10 +166,10 @@ class _RegisterScreen extends State<RegisterScreen> {
                                       obscureText: true,
                                       prefixIcon: Icon(Icons.lock_outline),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 26,
                                     ),
-                                    Text(
+                                    const Text(
                                       "Data de Aniversário",
                                       style: TextStyle(
                                         fontFamily: 'Fredoka',
@@ -182,16 +177,16 @@ class _RegisterScreen extends State<RegisterScreen> {
                                         color: Color(0xff8d8d8d),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     MyTextField(
                                       controller: _dataController,
                                       hintText: "01/01/2000",
                                       obscureText: false,
-                                      prefixIcon: Icon(Icons.calendar_month),
+                                      prefixIcon: const Icon(Icons.calendar_month),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 26,
                                     ),
                                     Center(

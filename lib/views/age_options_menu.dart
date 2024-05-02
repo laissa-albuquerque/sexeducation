@@ -1,9 +1,5 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sexeducation/views/define_nickname.dart';
-import 'package:sexeducation/views/viewsForYears/kids_group_one.dart';
+import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_group_menu.dart';
 
 class AgeOptionsMenuScreen extends StatefulWidget {
   const AgeOptionsMenuScreen({super.key});
@@ -78,7 +74,7 @@ class _AgeOptionsMenuScreen extends State<AgeOptionsMenuScreen> {
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                  SizedBox(height: 32),
+                                  const SizedBox(height: 32),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [

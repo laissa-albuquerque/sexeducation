@@ -1,10 +1,6 @@
 import 'dart:async';
-import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sexeducation/components/global.dart';
-import 'package:sexeducation/views/age_options_menu.dart';
 import 'package:sexeducation/views/define_nickname.dart';
 
 class InformationScreen extends StatefulWidget {

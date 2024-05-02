@@ -84,7 +84,7 @@ class _DefineNicknameScreen extends State<DefineNicknameScreen> {
                               height: MediaQuery.of(context).size.height,
                               padding: const EdgeInsets.symmetric(
                                   vertical: 12.0, horizontal: 16.0),
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.transparent,
                               ),
                               child: Column(
@@ -99,7 +99,7 @@ class _DefineNicknameScreen extends State<DefineNicknameScreen> {
                                       color: Colors.white,
                                     ),
                                   ),
-                                  SizedBox(height: 16),
+                                  const SizedBox(height: 16),
                                   const Padding(
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 8.0, vertical: 0),
@@ -113,7 +113,7 @@ class _DefineNicknameScreen extends State<DefineNicknameScreen> {
                                           fontWeight: FontWeight.w700),
                                     ),
                                   ),
-                                  SizedBox(height: 12),
+                                  const SizedBox(height: 12),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 8.0, vertical: 0),
@@ -128,7 +128,7 @@ class _DefineNicknameScreen extends State<DefineNicknameScreen> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(height: 32),
+                                  const SizedBox(height: 32),
                                   Hero(
                                     tag: 'avatar',
                                     child: CusttomButton(

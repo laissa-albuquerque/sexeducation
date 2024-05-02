@@ -1,15 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sexeducation/views/age_options_menu.dart';
 import 'package:sexeducation/views/define_avatar.dart';
 import 'package:sexeducation/views/information.dart';
 import 'package:sexeducation/views/login.dart';
 import 'package:sexeducation/views/register.dart';
 import 'package:sexeducation/views/define_nickname.dart';
-import 'package:sexeducation/views/viewsForYears/kids_group_one.dart';
-import 'package:sexeducation/views/viewsForYears/kids_videos.dart';
+import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_games.dart';
+import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_group_menu.dart';
+import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_videos.dart';
 import 'components/global.dart';
 import 'firebase_options.dart';
 
@@ -36,6 +35,7 @@ class MyApp extends StatelessWidget {
         AgeOptionsMenuScreen.id: (context) => const AgeOptionsMenuScreen(),
         KidsGroupOneScreen.id: (context) => const KidsGroupOneScreen(),
         KidsVideoScreen.id: (context) => const KidsVideoScreen(),
+        KidsGameScreen.id: (context) => const KidsGameScreen(),
       },
       home: Scaffold(
         body: Welcome(),

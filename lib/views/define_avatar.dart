@@ -1,8 +1,4 @@
-import 'dart:ffi';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sexeducation/views/age_options_menu.dart';
 
 import '../components/global.dart';
@@ -125,7 +121,7 @@ class _DefineAvatarScreen extends State<DefineAvatarScreen> {
                                       color: Colors.white,
                                     ),
                                   ),
-                                  SizedBox(height: 16),
+                                  const SizedBox(height: 16),
                                   const Padding(
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 8.0, vertical: 0),
@@ -139,7 +135,7 @@ class _DefineAvatarScreen extends State<DefineAvatarScreen> {
                                           fontWeight: FontWeight.w700),
                                     ),
                                   ),
-                                  SizedBox(height: 32),
+                                  const SizedBox(height: 32),
                                   Column(
                                     children: [
                                       Row(
@@ -148,13 +144,13 @@ class _DefineAvatarScreen extends State<DefineAvatarScreen> {
                                         children: [
                                           _buildAvatarOption(
                                               'assets/avatars/avatar-kid-boy1.png'),
-                                          SizedBox(width: 20),
+                                          const SizedBox(width: 20),
                                           _buildAvatarOption(
                                               'assets/avatars/avatar-kid-girl1.png'),
-                                          SizedBox(width: 20),
+                                          const SizedBox(width: 20),
                                           _buildAvatarOption(
                                               'assets/avatars/avatar-kid-boy2.png'),
-                                          SizedBox(width: 20),
+                                          const SizedBox(width: 20),
                                           _buildAvatarOption(
                                               'assets/avatars/avatar-kid-girl2.png'),
                                         ],
@@ -166,38 +162,38 @@ class _DefineAvatarScreen extends State<DefineAvatarScreen> {
                                         children: [
                                           _buildAvatarOption(
                                               'assets/avatars/man-avatar1.png'),
-                                          SizedBox(width: 20),
+                                          const SizedBox(width: 20),
                                           _buildAvatarOption(
                                               'assets/avatars/girl-avatar1.png'),
-                                          SizedBox(width: 20),
+                                          const SizedBox(width: 20),
                                           _buildAvatarOption(
                                               'assets/avatars/man-avatar2.png'),
-                                          SizedBox(width: 20),
+                                          const SizedBox(width: 20),
                                           _buildAvatarOption(
                                               'assets/avatars/girl-avatar2.png'),
                                         ],
                                       ),
-                                      SizedBox(height: 16),
+                                      const SizedBox(height: 16),
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
                                           _buildAvatarOption(
                                               'assets/avatars/cute-avatar1.png'),
-                                          SizedBox(width: 20),
+                                          const SizedBox(width: 20),
                                           _buildAvatarOption(
                                               'assets/avatars/cute-avatar2.png'),
-                                          SizedBox(width: 20),
+                                          const SizedBox(width: 20),
                                           _buildAvatarOption(
                                               'assets/avatars/cute-avatar3.png'),
-                                          SizedBox(width: 20),
+                                          const SizedBox(width: 20),
                                           _buildAvatarOption(
                                               'assets/avatars/cute-avatar4.png'),
                                         ],
                                       )
                                     ],
                                   ),
-                                  SizedBox(height: 32),
+                                  const SizedBox(height: 32),
                                   Hero(
                                       tag: 'avatar',
                                       child: CusttomButton(
@@ -239,12 +235,11 @@ class _DefineAvatarScreen extends State<DefineAvatarScreen> {
           width: 60,
           height: 60,
           decoration: BoxDecoration(
-            color: Colors.white60, // Cor de fundo
+            color: Colors.white60,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
               color: isSelected ? Color(0xffEEB820) : Colors.transparent,
-              // Cor da borda quando selecionado
-              width: 4, // Largura da borda
+              width: 4,
             ),
           ),
           child: CustomAvatar(width: 55, height: 55, urlImage: '$imagePath'),
