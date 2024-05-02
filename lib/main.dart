@@ -6,6 +6,7 @@ import 'package:sexeducation/views/information.dart';
 import 'package:sexeducation/views/login.dart';
 import 'package:sexeducation/views/register.dart';
 import 'package:sexeducation/views/define_nickname.dart';
+import 'package:sexeducation/views/viewsForYears/group_five_to_eight/games/memory_game.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_games.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_group_menu.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_videos.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         KidsGroupOneScreen.id: (context) => const KidsGroupOneScreen(),
         KidsVideoScreen.id: (context) => const KidsVideoScreen(),
         KidsGameScreen.id: (context) => const KidsGameScreen(),
+        MemoryGameScreen.id: (context) => const MemoryGameScreen(),
       },
       home: Scaffold(
         body: Welcome(),
