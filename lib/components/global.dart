@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+@immutable
 class CusttomButton extends StatelessWidget {
   CusttomButton(
       {super.key,

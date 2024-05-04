@@ -113,14 +113,17 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
                         width: 380,
                         color: const Color(0xffBFCAFF),
                         child: Center(
-                          child: Text(
-                            'Bem-vindo(a), ${_getNickname(userNickname ?? '')}',
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 32,
-                              fontFamily: 'KleeOne',
-                              color: Color(0xff0E0019),
-                              decoration: TextDecoration.none,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 0),
+                            child: Text(
+                              'Bem-vindo(a), ${_getNickname(userNickname ?? '')}',
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 32,
+                                fontFamily: 'KleeOne',
+                                color: Color(0xff0E0019),
+                                decoration: TextDecoration.none,
+                              ),
                             ),
                           ),
                         ),
@@ -294,7 +297,7 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
         ),
         Positioned(
           top: 50,
-          left: 75,
+          left: 78,
           child: Image.asset(
             _getUserImageProvider(
                 userImageUrl ?? 'assets/images/default_user.png'),
