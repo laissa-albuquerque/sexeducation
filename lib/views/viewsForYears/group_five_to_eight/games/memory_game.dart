@@ -10,6 +10,7 @@ import '../../../../models/card.dart';
 
 class MemoryGameScreen extends StatefulWidget {
   final CardOptionModel? optionCard;
+
   const MemoryGameScreen({Key? key, this.optionCard}) : super(key: key);
 
   static String id = 'memory_game_view';
@@ -18,12 +19,14 @@ class MemoryGameScreen extends StatefulWidget {
   State<StatefulWidget> createState() => _MemoryGameScreen();
 }
 
-class _MemoryGameScreen extends State<MemoryGameScreen> with SingleTickerProviderStateMixin {
+class _MemoryGameScreen extends State<MemoryGameScreen>
+    with SingleTickerProviderStateMixin {
   late final MemoryGameController controller = MemoryGameController();
   bool gameStarted = false;
   int countdown = 3;
-  int timerMessage = 1;
-  int timeGame = 20;
+  int timerMessage = 20;
+  int timeGameMinutes = 3;
+  int timeGameSeconds = 59;
 
   @override
   void initState() {
@@ -46,7 +49,7 @@ class _MemoryGameScreen extends State<MemoryGameScreen> with SingleTickerProvide
             setState(() {
               gameStarted = true;
               controller.initializeGame();
-              //_initCountTimeGame();
+              _initCountTimeGame();
             });
           }
         });
@@ -54,19 +57,24 @@ class _MemoryGameScreen extends State<MemoryGameScreen> with SingleTickerProvide
     });
   }
 
-  // _initCountTimeGame() {
-  //   Timer.periodic(const Duration(seconds: 1), (timer) {
-  //     if (timeGame > 0) {
-  //       setState(() {
-  //         timeGame--;
-  //       });
-  //     } else {
-  //       timer.cancel();
-  //       Navigator.of(context).pop();
-  //       gameStarted = false;
-  //     }
-  //   });
-  // }
+  _initCountTimeGame() {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (timeGameSeconds > 0) {
+          timeGameSeconds--;
+        } else {
+          if (timeGameMinutes > 0) {
+            timeGameMinutes--;
+            timeGameSeconds = 59;
+          } else {
+            timer.cancel();
+            Navigator.of(context).pop();
+            gameStarted = false;
+          }
+        }
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,9 +90,10 @@ class _MemoryGameScreen extends State<MemoryGameScreen> with SingleTickerProvide
             children: [
               Row(
                 children: [
-                  Image.asset('assets/images-games/time.png', width: 48, height: 48),
+                  Image.asset('assets/images-games/time.png',
+                      width: 48, height: 48),
                   Text(
-                    '00:$timeGame',
+                    timeGameSeconds < 10 ? '0$timeGameMinutes:0$timeGameSeconds' : '0$timeGameMinutes:$timeGameSeconds',
                     style: const TextStyle(
                       color: Colors.white,
                       fontFamily: 'Fredoka',
@@ -148,39 +157,42 @@ class _MemoryGameScreen extends State<MemoryGameScreen> with SingleTickerProvide
               child: gameStarted
                   ? _buildGridView()
                   : timerMessage > 0
-                  ? const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-                child: Text(
-                  'Encontre apenas os pares que representam as PARTES ÍNTIMAS dos meninos e das meninas.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 28,
-                    color: Colors.white,
-                    fontFamily: 'KleeOne',
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              )
-                  : Container(
-                width: 88,
-                height: 88,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.lightGreen,
-                  borderRadius: const BorderRadius.all(Radius.circular(100.0)),
-                  border: Border.all(color: Colors.transparent, width: 3.0),
-                ),
-                child: Text(
-                  '$countdown',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 32,
-                    color: Colors.white,
-                    fontFamily: 'Fredoka',
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+                      ? const Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                          child: Text(
+                            'Encontre os pares. Lembre-se: Ao encontrar todos os pares, clique em qualquer lugar da tela para continuar.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 28,
+                              color: Colors.white,
+                              fontFamily: 'KleeOne',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
+                      : Container(
+                          width: 88,
+                          height: 88,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Colors.lightGreen,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(100.0)),
+                            border: Border.all(
+                                color: Colors.transparent, width: 3.0),
+                          ),
+                          child: Text(
+                            '$countdown',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 32,
+                              color: Colors.white,
+                              fontFamily: 'Fredoka',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
             ),
           ],
         ),
@@ -198,7 +210,7 @@ class _MemoryGameScreen extends State<MemoryGameScreen> with SingleTickerProvide
         children: controller.allCards
             .map(
               (CardOptionModel go) => CardGame(cardOption: go),
-        )
+            )
             .toList(),
       ),
     );

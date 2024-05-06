@@ -17,9 +17,11 @@ class CardGame extends StatefulWidget {
   State<CardGame> createState() => _CardGameState();
 }
 
-class _CardGameState extends State<CardGame> with SingleTickerProviderStateMixin {
+class _CardGameState extends State<CardGame>
+    with SingleTickerProviderStateMixin {
   late final AnimationController animation;
-  late final MemoryGameController controller = MemoryGameController();
+  late final MemoryGameController controller =
+      context.read<MemoryGameController>();
 
   @override
   void initState() {
@@ -37,24 +39,33 @@ class _CardGameState extends State<CardGame> with SingleTickerProviderStateMixin
     super.dispose();
   }
 
-  AssetImage getImage(double angulo) {
-    if (angulo > 0.5 * pi) {
+  AssetImage getImage(double angle) {
+    if (angle > 0.5 * pi) {
       return AssetImage('${widget.cardOption.urlCard}');
     } else {
       return const AssetImage('assets/cards/verso.png');
     }
   }
 
-  flipCard() {
+  flipCard() async {
     final game = context.read<MemoryGameController>();
-
     if (!animation.isAnimating &&
         !widget.cardOption.matched &&
         !widget.cardOption.selected &&
-        !game.fullGame) {
+        !game.fullGame &&
+        !game.allPairsSelected) {
       animation.forward();
       game.choiceCard(widget.cardOption, resetCard);
     }
+
+    if (game.allPairsSelected) {
+      await Future.delayed(
+          const Duration(milliseconds: 300), () => Navigator.of(context).pop());
+    }
+  }
+
+  turnOverCards() {
+    animation.forward();
   }
 
   resetCard() {
@@ -66,13 +77,15 @@ class _CardGameState extends State<CardGame> with SingleTickerProviderStateMixin
     return AnimatedBuilder(
       animation: animation,
       builder: (BuildContext context, _) {
-        final angulo = animation.value * pi;
+        final angle = animation.value * pi;
         final transform = Matrix4.identity()
           ..setEntry(3, 2, 0.002)
-          ..rotateY(angulo);
+          ..rotateY(angle);
 
         return GestureDetector(
-          onTap: () => flipCard(),
+          onTap: () {
+            flipCard();
+          },
           child: Transform(
             transform: transform,
             alignment: Alignment.center,
@@ -80,11 +93,12 @@ class _CardGameState extends State<CardGame> with SingleTickerProviderStateMixin
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 2,
+                  color: Colors.transparent,
                 ),
-                borderRadius: const BorderRadius.all(Radius.circular(5)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: getImage(angulo),
+                  image: getImage(angle),
                 ),
               ),
             ),
