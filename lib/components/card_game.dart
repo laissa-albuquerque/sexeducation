@@ -39,7 +39,6 @@ class _CardGameState extends State<CardGame> with SingleTickerProviderStateMixin
 
   AssetImage getImage(double angulo) {
     if (angulo > 0.5 * pi) {
-      print('assets/cards/${widget.cardOption.urlCard}');
       return AssetImage('${widget.cardOption.urlCard}');
     } else {
       return const AssetImage('assets/cards/verso.png');
@@ -54,7 +53,7 @@ class _CardGameState extends State<CardGame> with SingleTickerProviderStateMixin
         !widget.cardOption.selected &&
         !game.fullGame) {
       animation.forward();
-      game.choiceCard(widget.cardOption);
+      game.choiceCard(widget.cardOption, resetCard);
     }
   }
 

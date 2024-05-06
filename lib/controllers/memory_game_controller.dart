@@ -4,7 +4,7 @@ import '../models/card.dart';
 
 class MemoryGameController extends ChangeNotifier {
 
-  List<CardOptionModel> cards = [
+  final List<CardOptionModel> cards = [
     CardOptionModel(
         urlCard: 'assets/cards/card1-menina.png',
         selected: false,
@@ -36,9 +36,19 @@ class MemoryGameController extends ChangeNotifier {
     CardOptionModel(
         urlCard: 'assets/cards/boca.png', selected: false, matched: false),
   ];
+  final List<CardOptionModel> cannotBeChosen = [
+    CardOptionModel(
+        urlCard: 'assets/cards/nariz.png', selected: false, matched: false),
+    CardOptionModel(
+        urlCard: 'assets/cards/olhos.png', selected: false, matched: false),
+    CardOptionModel(
+        urlCard: 'assets/cards/boca.png', selected: false, matched: false),
+  ];
+
 
   List<CardOptionModel> allCards = [];
   List<CardOptionModel> chosenCards = [];
+  List<Function> _choiceCallback = [];
 
   bool get fullGame => (chosenCards.length == 2);
 
@@ -46,13 +56,13 @@ class MemoryGameController extends ChangeNotifier {
     allCards.clear();
     allCards.addAll(cards);
     allCards.addAll(cards);
+
     allCards.shuffle();
   }
 
-  choiceCard(CardOptionModel card) async {
+  choiceCard(CardOptionModel card, Function resetCard) async {
     chosenCards.add(card);
-    card.selected = true;
-
+    _choiceCallback.add(resetCard);
     await _compareCards();
   }
 
@@ -63,12 +73,14 @@ class MemoryGameController extends ChangeNotifier {
         chosenCards[1].matched = true;
       } else {
         await Future.delayed(const Duration(seconds: 1), () {
-          for(CardOptionModel card in chosenCards) {
-            card.selected = false;
-            chosenCards.clear();
+          for(var i in [0,1]) {
+            chosenCards[i].selected = false;
+            _choiceCallback[i]();
           }
         });
       }
+      chosenCards = [];
+      _choiceCallback = [];
     }
   }
 }
