@@ -23,8 +23,8 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(MultiProvider(providers: [
-    Provider<MemoryGameController>(create: (_) => MemoryGameController()),
-    ChangeNotifierProvider<CorrectCardsGameController>(create: (_) => CorrectCardsGameController()),
+    ListenableProvider<MemoryGameController>(create: (_) => MemoryGameController()),
+    ListenableProvider<CorrectCardsGameController>(create: (_) => CorrectCardsGameController()),
   ],
     child: const MyApp(),
   ));

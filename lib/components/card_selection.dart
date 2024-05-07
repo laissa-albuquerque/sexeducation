@@ -43,11 +43,17 @@ class _CardSelectionGame extends State<CardSelectionGame>
     return AssetImage('${widget.cardOption.urlCard}');
   }
 
-  verseOrReverse(CardOptionModel card) {
+  verseOrReverse() {
+    final game = context.read<CorrectCardsGameController>();
+
     if (!animation.isAnimating && widget.cardOption.selected)
       reverseCard(widget.cardOption);
     if (!animation.isAnimating && !widget.cardOption.selected)
       flipCard(widget.cardOption);
+
+    if(game.allSelected) {
+      Navigator.of(context).pop();
+    }
   }
 
   flipCard(CardOptionModel card) async {
@@ -75,7 +81,7 @@ class _CardSelectionGame extends State<CardSelectionGame>
           ..rotateY(angle);
 
         return GestureDetector(
-          onTap: () => verseOrReverse(widget.cardOption),
+          onTap: () => verseOrReverse(),
           child: Transform(
             transform: transform,
             alignment: Alignment.center,

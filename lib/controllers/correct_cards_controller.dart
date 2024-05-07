@@ -59,12 +59,16 @@ class CorrectCardsGameController extends ChangeNotifier {
   bool get fullGame => (chosenCards.length == 6);
 
   initializeGame() {
+    chosenCards.clear();
     cards.shuffle();
-    chosenCards = [];
   }
 
   choiceCard(CardOptionModel card) async {
     await _selectCard(card);
+
+    if (fullGame) {
+      await validateEndOfGame();
+    }
   }
 
   _selectCard(CardOptionModel card) async {
@@ -76,8 +80,6 @@ class CorrectCardsGameController extends ChangeNotifier {
         card.selected = false;
         chosenCards.remove(card);
       }
-    } else {
-      await validateEndOfGame();
     }
   }
 
@@ -91,9 +93,12 @@ class CorrectCardsGameController extends ChangeNotifier {
 
     if (totalCanBeChosen == 6) {
       print('venceu');
+      allSelected = true;
     } else {
       print('tente dnv');
-      chosenCards = [];
+      for(int i = 0; i < cards.length; i++) {
+        cards[i].selected = false;
+      }
     }
   }
 }

@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sexeducation/components/card_selection.dart';
+import 'package:sexeducation/controllers/correct_cards_controller.dart';
 
-import '../../../../controllers/memory_game_controller.dart';
 import '../../../../models/card.dart';
 
 class CorrectCardsScreen extends StatefulWidget {
@@ -20,7 +20,7 @@ class CorrectCardsScreen extends StatefulWidget {
 
 class _CorrectCardsScreen extends State<CorrectCardsScreen>
     with SingleTickerProviderStateMixin {
-  late final MemoryGameController controller = MemoryGameController();
+  late final CorrectCardsGameController controller = CorrectCardsGameController();
   bool gameStarted = false;
   int countdown = 3;
   int timeGameMinutes = 3;
@@ -119,7 +119,7 @@ class _CorrectCardsScreen extends State<CorrectCardsScreen>
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<MemoryGameController>(
+    return ChangeNotifierProvider<CorrectCardsGameController>(
       create: (_) => controller,
       child: Scaffold(
         appBar: AppBar(
@@ -281,8 +281,8 @@ class _CorrectCardsScreen extends State<CorrectCardsScreen>
             ],
           ),
         ),
-        Container(
-          child: Consumer<MemoryGameController>(
+        Expanded(
+          child: Consumer<CorrectCardsGameController>(
             builder: (context, controller, _) => GridView.count(
               shrinkWrap: true,
               crossAxisCount: 3,
