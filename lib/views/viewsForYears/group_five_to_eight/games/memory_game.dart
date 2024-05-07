@@ -28,8 +28,8 @@ class _MemoryGameScreen extends State<MemoryGameScreen>
   late Timer _timerGame;
   bool gameStarted = false;
   int countdown = 3;
-  int timerMessage = 1;
-  int timeGameMinutes = 0;
+  int timerMessage = 25;
+  int timeGameMinutes = 3;
   int timeGameSeconds = 59;
 
   @override

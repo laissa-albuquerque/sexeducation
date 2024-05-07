@@ -28,7 +28,7 @@ class _CorrectCardsScreen extends State<CorrectCardsScreen>
   late Timer _timerGame;
   bool gameStarted = false;
   int countdown = 3;
-  int timeGameMinutes = 0;
+  int timeGameMinutes = 1;
   int timeGameSeconds = 59;
   String? selectedImageUrl;
 
