@@ -163,7 +163,7 @@ class _KidsGameScreen extends State<KidsGameScreen> {
                       ),
                       child: TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, CorrectCardsScreen.id);
+                          Navigator.pushNamed(context, MemoryGameScreen.id);
                         },
                         child:
                             Image.asset('assets/images-games/memory-game.png'),

@@ -64,7 +64,7 @@ class MemoryGameController extends ChangeNotifier {
     allCards.addAll(cards);
     allCards.addAll(cards);
 
-    allCards.shuffle();
+    //allCards.shuffle();
   }
 
   choiceCard(CardOptionModel card, Function resetCard) async {

@@ -92,12 +92,11 @@ class CorrectCardsGameController extends ChangeNotifier {
     }
 
     if (totalCanBeChosen == 6) {
-      print('venceu');
       allSelected = true;
     } else {
-      print('tente dnv');
       for(int i = 0; i < cards.length; i++) {
         cards[i].selected = false;
+        allSelected = false;
       }
     }
   }

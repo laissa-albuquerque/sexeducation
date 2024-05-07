@@ -33,27 +33,15 @@ class _CardSelectionGame extends State<CardSelectionGame>
     );
   }
 
-  @override
-  void dispose() {
-    animation.dispose();
-    super.dispose();
-  }
-
   AssetImage getImage(double angle) {
     return AssetImage('${widget.cardOption.urlCard}');
   }
 
   verseOrReverse() {
-    final game = context.read<CorrectCardsGameController>();
-
     if (!animation.isAnimating && widget.cardOption.selected)
       reverseCard(widget.cardOption);
     if (!animation.isAnimating && !widget.cardOption.selected)
       flipCard(widget.cardOption);
-
-    if(game.allSelected) {
-      Navigator.of(context).pop();
-    }
   }
 
   flipCard(CardOptionModel card) async {

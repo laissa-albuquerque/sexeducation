@@ -21,21 +21,37 @@ class MemoryGameScreen extends StatefulWidget {
 
 class _MemoryGameScreen extends State<MemoryGameScreen>
     with SingleTickerProviderStateMixin {
-  late final MemoryGameController controller = MemoryGameController();
+
+  late final MemoryGameController controller;
+
+  late Timer _timerCountdown;
+  late Timer _timerGame;
   bool gameStarted = false;
   int countdown = 3;
   int timerMessage = 1;
-  int timeGameMinutes = 1;
+  int timeGameMinutes = 0;
   int timeGameSeconds = 59;
 
   @override
   void initState() {
     super.initState();
+    controller = MemoryGameController();
     _startCountdown();
   }
 
+  @override
+  void dispose() {
+    _timerCountdown.cancel();
+    _timerGame.cancel();
+    super.dispose();
+  }
+
+  void cancelTimer() {
+    _timerGame.cancel();
+  }
+
   void _startCountdown() {
-    Timer.periodic(const Duration(seconds: 1), (timer) {
+    _timerCountdown = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (timerMessage > 0) {
         setState(() {
           timerMessage--;
@@ -45,7 +61,7 @@ class _MemoryGameScreen extends State<MemoryGameScreen>
           if (countdown > 1) {
             countdown--;
           } else {
-            timer.cancel();
+            _timerCountdown.cancel();
             setState(() {
               gameStarted = true;
               controller.initializeGame();
@@ -58,7 +74,7 @@ class _MemoryGameScreen extends State<MemoryGameScreen>
   }
 
   _initCountTimeGame() {
-    Timer.periodic(const Duration(seconds: 1), (timer) {
+    _timerGame = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (timeGameSeconds > 0) {
           timeGameSeconds--;
@@ -67,7 +83,7 @@ class _MemoryGameScreen extends State<MemoryGameScreen>
             timeGameMinutes--;
             timeGameSeconds = 5;
           } else {
-            timer.cancel();
+            _timerGame.cancel();
             Navigator.pushNamed(context, CorrectCardsScreen.id);
             gameStarted = false;
           }
@@ -117,6 +133,7 @@ class _MemoryGameScreen extends State<MemoryGameScreen>
               ),
               TextButton(
                 onPressed: () {
+                  _timerGame.cancel();
                   Navigator.pop(context);
                 },
                 child: const Text(
@@ -209,7 +226,9 @@ class _MemoryGameScreen extends State<MemoryGameScreen>
         mainAxisSpacing: 6,
         children: controller.allCards
             .map(
-              (CardOptionModel go) => CardGame(cardOption: go),
+              (CardOptionModel go) => CardGame(cardOption: go, onGameComplete: () {
+                cancelTimer();
+              }),
             )
             .toList(),
       ),

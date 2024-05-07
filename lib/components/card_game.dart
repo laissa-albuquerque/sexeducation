@@ -8,10 +8,12 @@ import 'package:sexeducation/views/viewsForYears/group_five_to_eight/games/corre
 
 class CardGame extends StatefulWidget {
   final CardOptionModel cardOption;
+  final Function onGameComplete;
 
   const CardGame({
     Key? key,
     required this.cardOption,
+    required this.onGameComplete
   }) : super(key: key);
 
   @override
@@ -20,7 +22,6 @@ class CardGame extends StatefulWidget {
 
 class _CardGameState extends State<CardGame>
     with SingleTickerProviderStateMixin {
-
   late final AnimationController animation;
   late final MemoryGameController controller =
       context.read<MemoryGameController>();
@@ -35,12 +36,6 @@ class _CardGameState extends State<CardGame>
     );
   }
 
-  @override
-  void dispose() {
-    animation.dispose();
-    super.dispose();
-  }
-
   AssetImage getImage(double angle) {
     if (angle > 0.5 * pi) {
       return AssetImage('${widget.cardOption.urlCard}');
@@ -49,7 +44,7 @@ class _CardGameState extends State<CardGame>
     }
   }
 
-  flipCard() async {
+  flipCard() {
     final game = context.read<MemoryGameController>();
     if (!animation.isAnimating &&
         !widget.cardOption.matched &&
@@ -61,8 +56,10 @@ class _CardGameState extends State<CardGame>
     }
 
     if (game.allPairsSelected) {
-      await Future.delayed(
-          const Duration(milliseconds: 300), () => Navigator.pushNamed(context, CorrectCardsScreen.id));
+      Future.delayed(const Duration(milliseconds: 300), () {
+        Navigator.pushNamed(context, CorrectCardsScreen.id);
+        widget.onGameComplete();// Cancela o timer quando a página muda
+      });
     }
   }
 
