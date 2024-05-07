@@ -2,28 +2,26 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sexeducation/controllers/memory_game_controller.dart';
+import 'package:sexeducation/controllers/correct_cards_controller.dart';
 import 'package:sexeducation/models/card.dart';
-import 'package:sexeducation/views/viewsForYears/group_five_to_eight/games/correct_cards.dart';
 
-class CardGame extends StatefulWidget {
+class CardSelectionGame extends StatefulWidget {
   final CardOptionModel cardOption;
 
-  const CardGame({
+  const CardSelectionGame({
     Key? key,
     required this.cardOption,
   }) : super(key: key);
 
   @override
-  State<CardGame> createState() => _CardGameState();
+  State<CardSelectionGame> createState() => _CardSelectionGame();
 }
 
-class _CardGameState extends State<CardGame>
+class _CardSelectionGame extends State<CardSelectionGame>
     with SingleTickerProviderStateMixin {
-
   late final AnimationController animation;
-  late final MemoryGameController controller =
-      context.read<MemoryGameController>();
+  late final CorrectCardsGameController controller =
+      context.read<CorrectCardsGameController>();
 
   @override
   void initState() {
@@ -42,32 +40,28 @@ class _CardGameState extends State<CardGame>
   }
 
   AssetImage getImage(double angle) {
-    if (angle > 0.5 * pi) {
-      return AssetImage('${widget.cardOption.urlCard}');
-    } else {
-      return const AssetImage('assets/cards/verso.png');
-    }
+    return AssetImage('${widget.cardOption.urlCard}');
   }
 
-  flipCard() async {
-    final game = context.read<MemoryGameController>();
-    if (!animation.isAnimating &&
-        !widget.cardOption.matched &&
-        !widget.cardOption.selected &&
-        !game.fullGame &&
-        !game.allPairsSelected) {
-      animation.forward();
-      game.choiceCard(widget.cardOption, resetCard);
-    }
-
-    if (game.allPairsSelected) {
-      await Future.delayed(
-          const Duration(milliseconds: 300), () => Navigator.pushNamed(context, CorrectCardsScreen.id));
-    }
+  verseOrReverse(CardOptionModel card) {
+    if (!animation.isAnimating && widget.cardOption.selected)
+      reverseCard(widget.cardOption);
+    if (!animation.isAnimating && !widget.cardOption.selected)
+      flipCard(widget.cardOption);
   }
 
-  resetCard() {
+  flipCard(CardOptionModel card) async {
+    final game = context.read<CorrectCardsGameController>();
+
+    animation.forward();
+    game.choiceCard(widget.cardOption);
+  }
+
+  reverseCard(CardOptionModel card) {
+    final game = context.read<CorrectCardsGameController>();
+
     animation.reverse();
+    game.choiceCard(widget.cardOption);
   }
 
   @override
@@ -81,9 +75,7 @@ class _CardGameState extends State<CardGame>
           ..rotateY(angle);
 
         return GestureDetector(
-          onTap: () {
-            flipCard();
-          },
+          onTap: () => verseOrReverse(widget.cardOption),
           child: Transform(
             transform: transform,
             alignment: Alignment.center,
@@ -91,7 +83,9 @@ class _CardGameState extends State<CardGame>
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 5,
-                  color: Colors.transparent,
+                  color: widget.cardOption.selected
+                      ? Colors.white
+                      : Colors.transparent,
                 ),
                 borderRadius: const BorderRadius.all(Radius.circular(20)),
                 image: DecorationImage(

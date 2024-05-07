@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sexeducation/views/viewsForYears/group_five_to_eight/games/correct_cards.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/games/memory_game.dart';
 
 class KidsGameScreen extends StatefulWidget {
@@ -162,7 +163,7 @@ class _KidsGameScreen extends State<KidsGameScreen> {
                       ),
                       child: TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, MemoryGameScreen.id);
+                          Navigator.pushNamed(context, CorrectCardsScreen.id);
                         },
                         child:
                             Image.asset('assets/images-games/memory-game.png'),

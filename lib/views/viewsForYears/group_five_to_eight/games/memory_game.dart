@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sexeducation/views/viewsForYears/group_five_to_eight/games/correct_cards.dart';
 
 import '../../../../components/card_game.dart';
 import '../../../../controllers/memory_game_controller.dart';
@@ -24,8 +24,8 @@ class _MemoryGameScreen extends State<MemoryGameScreen>
   late final MemoryGameController controller = MemoryGameController();
   bool gameStarted = false;
   int countdown = 3;
-  int timerMessage = 20;
-  int timeGameMinutes = 3;
+  int timerMessage = 1;
+  int timeGameMinutes = 1;
   int timeGameSeconds = 59;
 
   @override
@@ -65,10 +65,10 @@ class _MemoryGameScreen extends State<MemoryGameScreen>
         } else {
           if (timeGameMinutes > 0) {
             timeGameMinutes--;
-            timeGameSeconds = 59;
+            timeGameSeconds = 5;
           } else {
             timer.cancel();
-            Navigator.of(context).pop();
+            Navigator.pushNamed(context, CorrectCardsScreen.id);
             gameStarted = false;
           }
         }

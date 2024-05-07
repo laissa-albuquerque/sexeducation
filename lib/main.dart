@@ -7,11 +7,13 @@ import 'package:sexeducation/views/information.dart';
 import 'package:sexeducation/views/login.dart';
 import 'package:sexeducation/views/register.dart';
 import 'package:sexeducation/views/define_nickname.dart';
+import 'package:sexeducation/views/viewsForYears/group_five_to_eight/games/correct_cards.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/games/memory_game.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_games.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_group_menu.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_videos.dart';
 import 'components/global.dart';
+import 'controllers/correct_cards_controller.dart';
 import 'controllers/memory_game_controller.dart';
 import 'firebase_options.dart';
 
@@ -22,6 +24,7 @@ void main() async {
   );
   runApp(MultiProvider(providers: [
     Provider<MemoryGameController>(create: (_) => MemoryGameController()),
+    ChangeNotifierProvider<CorrectCardsGameController>(create: (_) => CorrectCardsGameController()),
   ],
     child: const MyApp(),
   ));
@@ -44,6 +47,7 @@ class MyApp extends StatelessWidget {
         KidsVideoScreen.id: (context) => const KidsVideoScreen(),
         KidsGameScreen.id: (context) => const KidsGameScreen(),
         MemoryGameScreen.id: (context) => const MemoryGameScreen(),
+        CorrectCardsScreen.id: (context) => const CorrectCardsScreen(),
       },
       home: Scaffold(
         body: Welcome(),

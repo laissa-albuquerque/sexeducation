@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../models/card.dart';
 
-class MemoryGameController extends ChangeNotifier {
+class CorrectCardsGameController extends ChangeNotifier {
   final List<CardOptionModel> cards = [
     CardOptionModel(
         urlCard: 'assets/cards/card1-menina.png',
@@ -51,56 +52,48 @@ class MemoryGameController extends ChangeNotifier {
         canBeChosen: false),
   ];
 
-  List<CardOptionModel> allCards = [];
   List<CardOptionModel> chosenCards = [];
-  List<Function> _choiceCallback = [];
 
-  bool allPairsSelected = false;
+  bool allSelected = false;
 
-  bool get fullGame => (chosenCards.length == 2);
+  bool get fullGame => (chosenCards.length == 6);
 
-  void initializeGame() {
-    allCards.clear();
-    allCards.addAll(cards);
-    allCards.addAll(cards);
-
-    allCards.shuffle();
+  initializeGame() {
+    cards.shuffle();
+    chosenCards = [];
   }
 
-  choiceCard(CardOptionModel card, Function resetCard) async {
-    chosenCards.add(card);
-    _choiceCallback.add(resetCard);
-    await _compareCards();
-    await validateEndOfGame();
+  choiceCard(CardOptionModel card) async {
+    await _selectCard(card);
   }
 
-  _compareCards() async {
-    if (fullGame) {
-      if (chosenCards[0].urlCard == chosenCards[1].urlCard) {
-        chosenCards[0].matched = true;
-        chosenCards[1].matched = true;
+  _selectCard(CardOptionModel card) async {
+    if (!fullGame) {
+      if (!card.selected) {
+        card.selected = true;
+        chosenCards.add(card);
       } else {
-        await Future.delayed(const Duration(seconds: 1), () {
-          for (var i in [0, 1]) {
-            chosenCards[i].selected = false;
-            _choiceCallback[i]();
-          }
-        });
+        card.selected = false;
+        chosenCards.remove(card);
       }
-      chosenCards = [];
-      _choiceCallback = [];
+    } else {
+      await validateEndOfGame();
     }
   }
 
   validateEndOfGame() {
-    const totalPairs = 18;
-    int totalPairsTurned = 0;
-    for (int i = 0; i < allCards.length; i++) {
-      if (allCards[i].matched) totalPairsTurned += 1;
+    int totalCanBeChosen = 0;
+    for (var card in chosenCards) {
+      if (card.canBeChosen) {
+        totalCanBeChosen += 1;
+      }
     }
 
-    if (totalPairsTurned == totalPairs) {
-      allPairsSelected = true;
+    if (totalCanBeChosen == 6) {
+      print('venceu');
+    } else {
+      print('tente dnv');
+      chosenCards = [];
     }
   }
 }
