@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/games/correct_cards.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/games/memory_game.dart';
+import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_group_menu.dart';
 
 class KidsGameScreen extends StatefulWidget {
   const KidsGameScreen({super.key});
@@ -319,6 +320,18 @@ class _KidsGameScreen extends State<KidsGameScreen> {
             ),
           ),
         ),
+        Positioned(
+          bottom: 32,
+          left: 20,
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.pushNamed(context, KidsGroupOneScreen.id);
+            },
+            backgroundColor: const Color(0xffBFCAFF),
+            shape: const CircleBorder(),
+            child: const Icon(Icons.keyboard_arrow_left, color: Color(0xff37035F), size: 32),// Cor de fundo do botão
+          ),
+        )
       ],
     );
   }

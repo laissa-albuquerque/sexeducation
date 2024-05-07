@@ -28,7 +28,7 @@ class _MemoryGameScreen extends State<MemoryGameScreen>
   late Timer _timerGame;
   bool gameStarted = false;
   int countdown = 3;
-  int timerMessage = 25;
+  int timerMessage = 12;
   int timeGameMinutes = 3;
   int timeGameSeconds = 59;
 
@@ -81,7 +81,7 @@ class _MemoryGameScreen extends State<MemoryGameScreen>
         } else {
           if (timeGameMinutes > 0) {
             timeGameMinutes--;
-            timeGameSeconds = 5;
+            timeGameSeconds = 59;
           } else {
             _timerGame.cancel();
             Navigator.pushNamed(context, CorrectCardsScreen.id);

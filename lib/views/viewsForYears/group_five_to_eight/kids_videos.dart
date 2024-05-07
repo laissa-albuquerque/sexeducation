@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sexeducation/components/video_play_view.dart';
 
 import '../../../services/authentication.dart';
+import 'kids_group_menu.dart';
 
 class KidsVideoScreen extends StatefulWidget {
   const KidsVideoScreen({super.key});
@@ -191,7 +192,7 @@ class _KidsVideoScreen extends State<KidsVideoScreen> {
           left: 20,
           child: FloatingActionButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.pushNamed(context, KidsGroupOneScreen.id);
             },
             backgroundColor: const Color(0xffBFCAFF),
             shape: const CircleBorder(),
