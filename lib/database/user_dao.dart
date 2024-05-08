@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:sexeducation/models/user.dart';
-import 'package:sexeducation/services/authentication.dart';
 
 class UserDao {
   final FirebaseFirestore database = FirebaseFirestore.instance;

@@ -3,6 +3,7 @@ import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_games.
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_videos.dart';
 import '../../../components/global.dart';
 import '../../../services/authentication.dart';
+import '../../age_options_menu.dart';
 
 class KidsGroupOneScreen extends StatefulWidget {
   const KidsGroupOneScreen({super.key});
@@ -305,6 +306,18 @@ class _KidsGroupOneScreen extends State<KidsGroupOneScreen> {
             height: 250,
           ),
         ),
+        Positioned(
+          bottom: 32,
+          left: 20,
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.pushNamed(context, AgeOptionsMenuScreen.id);
+            },
+            backgroundColor: const Color(0xffBFCAFF),
+            shape: const CircleBorder(),
+            child: const Icon(Icons.keyboard_arrow_left, color: Color(0xff37035F), size: 32),// Cor de fundo do botão
+          ),
+        )
       ],
     );
   }

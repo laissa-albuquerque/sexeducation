@@ -12,6 +12,8 @@ import 'package:sexeducation/views/viewsForYears/group_five_to_eight/games/memor
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_games.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_group_menu.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_videos.dart';
+import 'package:sexeducation/views/viewsForYears/group_nine_to_twelve/feed.dart';
+import 'package:sexeducation/views/viewsForYears/group_nine_to_twelve/group_two_menu.dart';
 import 'components/global.dart';
 import 'controllers/correct_cards_controller.dart';
 import 'controllers/memory_game_controller.dart';
@@ -48,6 +50,8 @@ class MyApp extends StatelessWidget {
         KidsGameScreen.id: (context) => const KidsGameScreen(),
         MemoryGameScreen.id: (context) => const MemoryGameScreen(),
         CorrectCardsScreen.id: (context) => const CorrectCardsScreen(),
+        GroupTwoScreen.id: (context) => const GroupTwoScreen(),
+        FeedScreen.id: (context) => const FeedScreen(),
       },
       home: Scaffold(
         body: Welcome(),

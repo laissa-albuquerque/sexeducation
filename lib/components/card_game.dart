@@ -11,10 +11,10 @@ class CardGame extends StatefulWidget {
   final Function onGameComplete;
 
   const CardGame({
-    Key? key,
+    super.key,
     required this.cardOption,
     required this.onGameComplete
-  }) : super(key: key);
+  });
 
   @override
   State<CardGame> createState() => _CardGameState();
@@ -38,7 +38,7 @@ class _CardGameState extends State<CardGame>
 
   AssetImage getImage(double angle) {
     if (angle > 0.5 * pi) {
-      return AssetImage('${widget.cardOption.urlCard}');
+      return AssetImage(widget.cardOption.urlCard);
     } else {
       return const AssetImage('assets/cards/verso.png');
     }

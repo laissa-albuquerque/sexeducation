@@ -9,9 +9,9 @@ class CardSelectionGame extends StatefulWidget {
   final CardOptionModel cardOption;
 
   const CardSelectionGame({
-    Key? key,
+    super.key,
     required this.cardOption,
-  }) : super(key: key);
+  });
 
   @override
   State<CardSelectionGame> createState() => _CardSelectionGame();
@@ -34,14 +34,16 @@ class _CardSelectionGame extends State<CardSelectionGame>
   }
 
   AssetImage getImage(double angle) {
-    return AssetImage('${widget.cardOption.urlCard}');
+    return AssetImage(widget.cardOption.urlCard);
   }
 
   verseOrReverse() {
-    if (!animation.isAnimating && widget.cardOption.selected)
+    if (!animation.isAnimating && widget.cardOption.selected) {
       reverseCard(widget.cardOption);
-    if (!animation.isAnimating && !widget.cardOption.selected)
+    }
+    if (!animation.isAnimating && !widget.cardOption.selected) {
       flipCard(widget.cardOption);
+    }
   }
 
   flipCard(CardOptionModel card) async {

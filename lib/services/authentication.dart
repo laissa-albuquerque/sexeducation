@@ -4,7 +4,7 @@ import 'package:sexeducation/database/user_dao.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  late UserDao _userDao = UserDao();
+  late final UserDao _userDao = UserDao();
 
   Future<User?> signInWithEmailAndPassword(
       String email, String password) async {

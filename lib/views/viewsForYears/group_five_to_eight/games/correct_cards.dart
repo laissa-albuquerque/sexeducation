@@ -12,7 +12,7 @@ import '../../../../models/card.dart';
 class CorrectCardsScreen extends StatefulWidget {
   final CardOptionModel? optionCard;
 
-  const CorrectCardsScreen({Key? key, this.optionCard}) : super(key: key);
+  const CorrectCardsScreen({super.key, this.optionCard});
 
   static String id = 'correct_cards_game_view';
 

@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerView extends StatefulWidget {
+
+  final String url;
+  final String nameVideo;
+
   const VideoPlayerView({
     super.key,
     required this.url,
     required this.nameVideo,
   });
-
-  final String url;
-  final String nameVideo;
 
   @override
   State<VideoPlayerView> createState() => _VideoPlayerViewState();

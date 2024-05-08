@@ -22,7 +22,7 @@ class _RegisterScreen extends State<RegisterScreen> {
 
   UserDao userController = UserDao();
 
-  _cadastrar() async {
+  _register() async {
     String name = _nameController.text;
     String email = _emailController.text;
     String password = _passwordController.text;
@@ -195,7 +195,7 @@ class _RegisterScreen extends State<RegisterScreen> {
                                         child: CusttomButton(
                                           buttonText: 'CADASTRAR',
                                           onPressed: () {
-                                            _cadastrar();
+                                            _register();
                                           },
                                           colors: const [
                                             Color(0xFF2d1640),

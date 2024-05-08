@@ -11,7 +11,7 @@ import '../../../../models/card.dart';
 class MemoryGameScreen extends StatefulWidget {
   final CardOptionModel? optionCard;
 
-  const MemoryGameScreen({Key? key, this.optionCard}) : super(key: key);
+  const MemoryGameScreen({super.key, this.optionCard});
 
   static String id = 'memory_game_view';
 
