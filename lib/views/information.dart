@@ -14,7 +14,7 @@ class InformationScreen extends StatefulWidget {
 
 class _InformationScreen extends State<InformationScreen> {
   late Timer _timer;
-  int _countdown = 1;
+  int _countdown = 12;
 
   @override
   void initState() {

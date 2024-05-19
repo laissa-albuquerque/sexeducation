@@ -170,15 +170,58 @@ class _FeedScreen extends State<FeedScreen> {
                 ],
               ),
               const SizedBox(height: 12),
-              CardFeed(img: 'assets/avatars/girl-avatar1.png',
-                  text: 'Contrary to popular belief, Lorem Ipsum is not simply random text. '
-                      'It has roots in a piece of classical Latin literature from 45 BC, '
-                      'making it over 2000 years old. Richard McClintock, a '
-                      'Latin professor at Hampden-Sydney College in Virginia, '
-                      'looked up one of the more obscure Latin words, consectetur, '
-                      'from a Lorem Ipsum passage, and going through the cites of the word '
-                      'in classical literature, discovered the undoubtable source.',
+              CardFeed(img: 'assets/images-feed/feed1.png',
+                  text: 'O ciclo menstrual é um processo natural pelo qual o corpo da menina passa todos os meses. '
+                      'Ele é uma parte importante do crescimento e acontece para preparar o corpo para uma possível '
+                      'gravidez no futuro. Role o feed para entender como ele funciona de maneira simples: ',
                   like: false, onTap: () {  },),
+              const SizedBox(height: 22),
+              CardFeed(img: 'assets/images-feed/feed2.png',
+                text: 'O ciclo se inicia quando a menina menstrua (sangra) pela primeira vez.\n\n'
+                    'Mas o que é a menstruação?\n'
+                    'A menstruação é quando a camada interna do útero (endométrio), que se formou no ciclo anterior, '
+                    'se desintegra e é expelida do corpo através da vagina. Isso acontece porque o óvulo não foi fertilizado '
+                    'e o corpo não precisa mais dessa camada espessa.\n',
+                like: false, onTap: () {  },),
+              const SizedBox(height: 22),
+              CardFeed(img: 'assets/images-feed/feed3.png',
+                text: 'A partir daí o clico vai se dividr em três fases:\n'
+                    '- Fase folicular\n'
+                    '- Fase ovulatória\n'
+                    '- Fase lútea',
+                like: false, onTap: () {  },),
+              const SizedBox(height: 22),
+              CardFeed(img: 'assets/images-feed/feed4.png',
+                text: 'É importante saber que a fase folicular é a primeira parte do ciclo e inlcui o período menstrual.\n\n'
+                'A fase folicular começa no primeiro dia da menstruação e dura '
+                    'até a ovulação. Essa fase geralmente dura cerca de 14 dias, mas pode variar.\n\n'
+                    'Durante esta fase, o corpo começa a preparar um novo óvulo para ser liberado. '
+                    'O cérebro envia sinais aos ovários para que eles produzam folículos, que são pequenas bolsas cheias de líquido que contêm os óvulos.\n\n'
+                    'A fase folicular é essencial para reiniciar o ciclo menstrual e '
+                    'preparar o corpo para uma nova possibilidade de gravidez.',
+                like: false, onTap: () {  },),
+              const SizedBox(height: 22),
+              CardFeed(img: 'assets/images-feed/feed5.png',
+                text: 'Cerca de duas semanas após o início da menstruação, o óvulo está pronto e '
+                    'é liberado do ovário. Isso se chama ovulação. '
+                    'O óvulo então se move para a trompa de Falópio, onde pode encontrar '
+                    'um espermatozoide (célula masculina) se a menina tiver relações sexuais.',
+                like: false, onTap: () {  },),
+              const SizedBox(height: 22),
+              CardFeed(img: 'assets/images-feed/feed6.png',
+                text: 'Durante a fase lútea, o corpo da menina se prepara para uma possível gravidez. '
+                    'Após a ovulação, o ovário libera hormônios, principalmente a progesterona, que ajudam a '
+                    'tornar a camada do útero (onde um bebê cresceria) mais espessa e pronta para nutrir um possível bebê.',
+                like: false, onTap: () {  },),
+              const SizedBox(height: 22),
+              CardFeed(img: 'assets/images-feed/feed7.png',
+                text: 'Se o óvulo não encontrar um espermatozoide e não for fertilizado, '
+                    'o corpo entende que não há gravidez. Então, os níveis dos '
+                    'hormônios progesterona e estrogênio começam a cair.\n\n'
+                    ' Toda essa variação hormonal pode trazer uma série de sensações na mulher. Esses sensações são os sintomas da TPM.\n\n'
+                    'A TPM, ou Tensão Pré-Menstrual, são os sintomas que algumas meninas e mulheres podem sentir antes de começarem a menstruar. '
+                    'Esses sintomas acontecem durante a fase lútea, especialmente nos dias finais, antes da menstruação começar.',
+                like: false, onTap: () {  },)
             ],
           ),
         ),

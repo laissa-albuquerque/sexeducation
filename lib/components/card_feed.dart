@@ -65,9 +65,12 @@ class _CardFeedState extends State<CardFeed> {
                   width: 340,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Image.asset(widget.img),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Image.asset(widget.img),
+                  ),
                 ),
               ),
               Row(

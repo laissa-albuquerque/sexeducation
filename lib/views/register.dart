@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sexeducation/database/user_dao.dart';
 import 'package:sexeducation/models/user.dart';
+import 'package:sexeducation/views/login.dart';
 
 import '../components/global.dart';
 
@@ -18,7 +19,6 @@ class _RegisterScreen extends State<RegisterScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _dataController = TextEditingController();
 
   UserDao userController = UserDao();
 
@@ -26,8 +26,7 @@ class _RegisterScreen extends State<RegisterScreen> {
     String name = _nameController.text;
     String email = _emailController.text;
     String password = _passwordController.text;
-    String date = _dataController.text;
-    UserModel user = UserModel(name: name, email: email, dateOfBirth: date);
+    UserModel user = UserModel(name: name, email: email);
     userController.insert(user);
 
     try {
@@ -35,6 +34,10 @@ class _RegisterScreen extends State<RegisterScreen> {
         email: email,
         password: password,
       );
+
+      await Future.delayed(const Duration(seconds: 1), () {
+        Navigator.pushNamed(context, LoginScreen.id);
+      });
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
@@ -127,7 +130,7 @@ class _RegisterScreen extends State<RegisterScreen> {
                                     //   ),
                                     // ),
                                     const SizedBox(
-                                      height: 10,
+                                      height: 26,
                                     ),
                                     const Text(
                                       "Email",
@@ -166,26 +169,26 @@ class _RegisterScreen extends State<RegisterScreen> {
                                       obscureText: true,
                                       prefixIcon: Icon(Icons.lock_outline),
                                     ),
-                                    const SizedBox(
-                                      height: 26,
-                                    ),
-                                    const Text(
-                                      "Data de Aniversário",
-                                      style: TextStyle(
-                                        fontFamily: 'Fredoka',
-                                        fontSize: 18,
-                                        color: Color(0xff8d8d8d),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    MyTextField(
-                                      controller: _dataController,
-                                      hintText: "01/01/2000",
-                                      obscureText: false,
-                                      prefixIcon: const Icon(Icons.calendar_month),
-                                    ),
+                                    // const SizedBox(
+                                    //   height: 26,
+                                    // ),
+                                    // const Text(
+                                    //   "Data de Aniversário",
+                                    //   style: TextStyle(
+                                    //     fontFamily: 'Fredoka',
+                                    //     fontSize: 18,
+                                    //     color: Color(0xff8d8d8d),
+                                    //   ),
+                                    // ),
+                                    // const SizedBox(
+                                    //   height: 10,
+                                    // ),
+                                    // MyTextField(
+                                    //   controller: _dataController,
+                                    //   hintText: "01/01/2000",
+                                    //   obscureText: false,
+                                    //   prefixIcon: const Icon(Icons.calendar_month),
+                                    // ),
                                     const SizedBox(
                                       height: 26,
                                     ),
@@ -210,9 +213,9 @@ class _RegisterScreen extends State<RegisterScreen> {
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      height: 12,
-                                    ),
+                                    // const SizedBox(
+                                    //   height: 12,
+                                    // ),
                                     // Padding(
                                     //   padding:
                                     //   const EdgeInsets.fromLTRB(35, 0, 0, 0),

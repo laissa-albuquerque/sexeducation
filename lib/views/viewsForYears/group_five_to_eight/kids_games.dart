@@ -107,7 +107,7 @@ class _KidsGameScreen extends State<KidsGameScreen> {
                           margin: EdgeInsets.fromLTRB(12, 50, 12, 12),
                           child: const Text(
                             'Nesta seção vamos colocar em'
-                            ' prática tudo que aprendemos nos vídeos."',
+                            ' prática tudo que aprendemos nos vídeos.',
                             textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontSize: 20,
