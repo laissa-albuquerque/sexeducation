@@ -3,7 +3,6 @@ import 'package:sexeducation/views/viewsForYears/group_nine_to_twelve/feed.dart'
 import '../../../components/global.dart';
 import '../../../services/authentication.dart';
 import '../../age_options_menu.dart';
-import '../group_nine_to_twelve/feed.dart';
 
 class GroupTwoScreen extends StatefulWidget {
   const GroupTwoScreen({super.key});
@@ -181,7 +180,7 @@ class _GroupTwoScreen extends State<GroupTwoScreen> {
                               child: const CustomAvatar(
                                   width: 80,
                                   height: 80,
-                                  urlImage: 'assets/images/ffeed.png'),
+                                  urlImage: 'assets/images/feed.png'),
                             ),
                           ),
                           TextButton(

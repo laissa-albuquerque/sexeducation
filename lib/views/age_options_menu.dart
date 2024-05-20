@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sexeducation/views/viewsForYears/group_five_to_eight/kids_group_menu.dart';
 import 'package:sexeducation/views/viewsForYears/group_nine_to_twelve/group_two_menu.dart';
+import 'package:sexeducation/views/viewsForYears/group_twelve_to_fifteen/group_three_menu.dart';
 
 class AgeOptionsMenuScreen extends StatefulWidget {
   const AgeOptionsMenuScreen({super.key});
@@ -163,7 +164,7 @@ class _AgeOptionsMenuScreen extends State<AgeOptionsMenuScreen> {
                                       ),
                                       child: Center(
                                         child: TextButton(
-                                          onPressed: () {  },
+                                          onPressed: () { Navigator.pushNamed(context, GroupThreeScreen.id); },
                                           child: const Text(
                                             '12 - 15 anos',
                                             textAlign: TextAlign.center,

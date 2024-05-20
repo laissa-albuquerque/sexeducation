@@ -221,7 +221,8 @@ class _FeedScreen extends State<FeedScreen> {
                     ' Toda essa variação hormonal pode trazer uma série de sensações na mulher. Esses sensações são os sintomas da TPM.\n\n'
                     'A TPM, ou Tensão Pré-Menstrual, são os sintomas que algumas meninas e mulheres podem sentir antes de começarem a menstruar. '
                     'Esses sintomas acontecem durante a fase lútea, especialmente nos dias finais, antes da menstruação começar.',
-                like: false, onTap: () {  },)
+                like: false, onTap: () {  },),
+              const SizedBox(height: 40)
             ],
           ),
         ),

@@ -29,8 +29,8 @@ class _CardFeedState extends State<CardFeed> {
           width: 380,
           decoration: BoxDecoration(
             border: Border.all(
-              color: Colors.transparent, // Cor da borda
-              width: 2, // Largura da borda
+              color: Colors.transparent,
+              width: 2,
             ),
             borderRadius: BorderRadius.circular(10),
             gradient: const LinearGradient(

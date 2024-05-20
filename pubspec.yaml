@@ -73,7 +73,7 @@ flutter:
     - assets/images-games/
     - assets/cards/
     - assets/images-feed/
-
+    - assets/images-diary/
   fonts:
     - family: KleeOne
       fonts:
