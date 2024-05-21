@@ -141,8 +141,8 @@ class _DiaryScreen extends State<DiaryScreen> {
                           Container(
                             margin: const EdgeInsets.fromLTRB(125, 4, 12, 4),
                             child: Text(
-                              '"Olá ${_getNickname(userNickname ?? '')}! Clique no play para visualizar o conteúdo do diário e arraste para o lado'
-                                  ' para visualizar as páginas do diário."',
+                              '"Olá ${_getNickname(userNickname ?? '')}! Clique no play para visualizar o conteúdo do diário e arraste para cima '
+                                  ' para visualizar o restante da página do diário."',
                               textAlign: TextAlign.justify,
                               style: const TextStyle(
                                 fontSize: 14,
@@ -222,7 +222,7 @@ class _DiaryScreen extends State<DiaryScreen> {
                           ),
                         ),
                         const Padding(
-                          padding: EdgeInsets.fromLTRB(16, 8, 16, 26),
+                          padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
                           child: Text(
                             'Nessa idade, é normal ter muitas dúvidas e sentir vergonha do próprio corpo. '
                             'O que os outros dizem ou pensam sobre você pode afetar como você se sente, '
@@ -295,8 +295,8 @@ class _DiaryScreen extends State<DiaryScreen> {
           ),
         ),
         Positioned(
-          bottom: 32,
-          left: 20,
+          bottom: 15,
+          left: 12,
           child: FloatingActionButton(
             onPressed: () {
               Navigator.pushNamed(context, GroupThreeScreen.id);
@@ -304,7 +304,7 @@ class _DiaryScreen extends State<DiaryScreen> {
             backgroundColor: const Color(0xffBFCAFF),
             shape: const CircleBorder(),
             child: const Icon(Icons.keyboard_arrow_left,
-                color: Color(0xff37035F), size: 32), // Cor de fundo do botão
+                color: Color(0xff37035F), size: 32),
           ),
         )
       ],
