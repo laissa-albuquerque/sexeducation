@@ -67,7 +67,7 @@ class _PageOneScreenState extends State<PageOneScreen> {
             ),
             PageView(
               controller: _pageController,
-              scrollDirection: Axis.horizontal,
+              scrollDirection: Axis.vertical,
               children: List.generate(13, (index) {
                 return AnimatedContainer(
                   duration: const Duration(milliseconds: 500),
