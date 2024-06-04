@@ -22,15 +22,18 @@ Para executar este projeto, você precisará ter instalado:
 ## Como Executar o Projeto
 
 1. **Clone o Repositório:**
+   
    ```sh
    git clone https://github.com/laissa-albuquerque/sexeducation.git
    cd sexeducation
    
 2. **Instale as Dependências**
+   
     ```sh
    flutter pub get
 
-2. **Execute o Aplicativo**
+3. **Execute o Aplicativo**
+   
     ```sh
    flutter run
 
